@@ -5,7 +5,7 @@ node{
   }
   stage('Compile Package'){
     //Get Maven Home path
-    def jdkhome = tool name: 'Jdk 11', type: 'jdk'
+    def jdkHome = tool name: 'Jdk 11', type: 'jdk'
     env.JAVA_HOME = "${jdkHome}"
     env.PATH = "${jdkHome}\\bin;${env.PATH}"
 
