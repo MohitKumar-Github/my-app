@@ -19,9 +19,11 @@ node{
    stage('Deploy to Tomcat'){
       
       sshagent(['tomcat-dev']) {
-         sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@172.31.29.242:/opt/tomcat8/webapps/'
+         //sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@13.204.75.116:/opt/tomcat8/webapps/'
+        bat 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@13.204.75.116:/home/ec2-user/tomcat/webapps/'
       }
    }
+
 
    stage('SonarQube Analysis') {
         def mvnHome = tool name: 'maven 3.9.9', type: 'maven'
